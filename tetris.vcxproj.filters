@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\Figures">
+      <UniqueIdentifier>{94ce4f2b-f925-4265-b74e-d3ecb1dc71de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Layers">
+      <UniqueIdentifier>{a4766bf5-807e-484b-a0d6-bd1d4ba4dd5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tetris.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GameController.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Angle.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="AngleD.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Zoro.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Straight.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Sqeare.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFigure.cpp">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="Backgroung.cpp">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLayer.cpp">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameController.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfig.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Backgroung.h">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLayer.h">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="Angle.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="AngleD.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFigure.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Sqeare.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Straight.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="Zoro.h">
+      <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
