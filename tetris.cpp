@@ -21,7 +21,7 @@ using namespace std;
 void SetWindowSize(int Width, int Height)
 {
 	_COORD coord;
-	coord.X = Width;
+	coord.X = Width+10;
 	coord.Y = Height;
 
 	_SMALL_RECT Rect;

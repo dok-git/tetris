@@ -9,7 +9,7 @@ public:
 
     void updateGameLayer(int gameLayer);
 
-    COORD layerPos{ 11,4 };
+    COORD layerPos{ 6,4 };
 private:
     //std::vector <std::vector <int>> layerDate;
     int layerDate[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT];

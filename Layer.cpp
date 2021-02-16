@@ -70,3 +70,9 @@ void Layer::box(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, int x0,
 	}
 }
 
+void Layer::drawArrayPoints(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, std::vector<COORD> points )
+{
+	for (int i = 0; i < points.size(); i++) {
+		layerBufer.push_back(getCellVO(Char, color, points[i].X, points[i].Y));
+	}
+}
