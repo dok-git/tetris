@@ -60,6 +60,9 @@
     <ClCompile Include="Layer.cpp">
       <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameController.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="Zoro.h">
       <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

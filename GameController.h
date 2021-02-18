@@ -2,6 +2,7 @@
 #include "GameConfig.h"
 #include "vector"
 #include "BaseFigure.h"
+#include "GameData.h"
 
 enum class Direction { RIGHT, LEFT, UP, DOWN };
 
@@ -10,11 +11,12 @@ class GameController
 
 public:
 	GameController();
+	GameData* gameData;
+
 	void move(Direction dir);
 	int getGameLayer();
 
 	void nextFigure();
-
 	void drawFigure();
 
 private:
