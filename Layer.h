@@ -25,6 +25,7 @@ class Layer
 		void line(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, int x0, int y0, int x1, int y1);
 		void border(std::vector<CellVO>& layerBufer, WCHAR CharH, WCHAR CharV, WCHAR CharA1, WCHAR CharA2, WCHAR CharA3, WCHAR CharA4, WORD color, int x0, int y0, int width, int height);
 		void box(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, int x0, int y0, int width, int height);
+		void drawArrayPoints(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, std::vector<COORD> points);
 };
 
 
