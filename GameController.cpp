@@ -48,6 +48,7 @@ void GameController::move(Direction dir)
 	case Direction::UP:
 		nextFigure();
 		drawFigure();
+		updateGameData();
 		break;
 	default:
 		break;
@@ -60,13 +61,28 @@ void GameController::nextFigure()
 	figureId = random(5);
 }
 
-void GameController:: drawFigure()
+void GameController::drawFigure()
 {
-
-	gameData->clearDataVO();
+	moveDataVO.clear();
 	BaseFigure currentFigure = figures[figureId];
 	vector<COORD> state = currentFigure.getState();
 	for (int i = 0; i < state.size(); i++) {
-		gameData->dataVO.data[state[i].X][state[i].Y] = 1;
+		moveDataVO.data[state[i].X][state[i].Y] = 1;
+	}
+}
+
+void GameController::updateGameData() {
+	gameData->dataVO.clear();
+	for (int i = 0; i < GameConfig::WIDTH; i++) {
+		for (int j = 0; j < GameConfig::HEIGHT; j++) {
+			if (moveDataVO.data[i][j] != 0) {
+				gameData->dataVO.data[i][j] = moveDataVO.data[i][j];
+			}
+
+			if (staticDataVO.data[i][j] != 0) {
+				gameData->dataVO.data[i][j] = staticDataVO.data[i][j];
+			}
+
+		}
 	}
 }

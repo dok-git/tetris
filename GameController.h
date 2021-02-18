@@ -14,18 +14,17 @@ public:
 	GameData* gameData;
 
 	void move(Direction dir);
-	int getGameLayer();
-
-	void nextFigure();
-	void drawFigure();
 
 private:
-	int moveLayer[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT];
-	int staticLayer[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT];
-	int gameLayer[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT];
-	//std:: vector <std :: vector <int>> gameLayer;
+	DataVO moveDataVO;
+	DataVO staticDataVO;
+
 	std::vector < BaseFigure > figures;
 	int figureId = 0;
+
+	void updateGameData();
+	void nextFigure();
+	void drawFigure();
 };
 
 
