@@ -145,6 +145,7 @@
     <ClCompile Include="BaseFigure.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLayer.cpp" />
+    <ClCompile Include="InfoLayer.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sqeare.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLayer.h" />
+    <ClInclude Include="InfoLayer.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sqeare.h" />

@@ -2,6 +2,8 @@
 #include "GameConfig.h"
 #include <vector>
 #include <iostream>
+#include <string>
+using namespace std;
 
 CONSOLE_SCREEN_BUFFER_INFO csbiInfo;
 
@@ -74,5 +76,13 @@ void Layer::drawArrayPoints(std::vector<CellVO>& layerBufer, WCHAR Char, WORD co
 {
 	for (int i = 0; i < points.size(); i++) {
 		layerBufer.push_back(getCellVO(Char, color, points[i].X, points[i].Y));
+	}
+}
+
+void Layer::drawString(std::vector<CellVO>& layerBufer, WORD color,COORD pos)
+{
+	string String="TeTriS GAME!";
+	for (int i = 0; i < String.size(); i++) {
+		layerBufer.push_back(getCellVO(String[i], color,pos.X+i,pos.Y));
 	}
 }
