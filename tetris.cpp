@@ -11,6 +11,9 @@
 #include <fcntl.h>
 #include <io.h>
 #include "GameData.h"
+#include "InfoLayer.h"
+#include <iostream>
+#include <chrono>
 
 using namespace std;
 
@@ -54,6 +57,8 @@ void initWindow() {
 
 int main()
 {
+	auto start = chrono::high_resolution_clock::now();
+
 	initWindow();
 	srand((unsigned)time(0));
 
@@ -62,6 +67,7 @@ int main()
 	Scene scene;
 	Backgroung backgroung;
 	GameLayer gameLayer;
+	InfoLayer infoLayer;
 
 	scene.addLayer(&backgroung);
 	scene.addLayer(&gameLayer);
@@ -74,6 +80,7 @@ int main()
 	int iKey = 67;
 	while (iKey != 27) // Выход по клавише ESC
 	{
+		
 		if (_kbhit())
 		{
 			iKey = _getch();
@@ -100,5 +107,7 @@ int main()
 			}
 		}
 	}
-
+	auto end = chrono::high_resolution_clock::now();
+	chrono::duration<float> duration = end - start;
+	cout << duration.count();
  }
