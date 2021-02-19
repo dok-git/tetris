@@ -13,19 +13,6 @@ int random(int max) {
 
 GameController::GameController()
 {
-
-	//for (int i = 0; i < GameConfig::GAME_WIDTH; i++) {
-	//	std::vector<int> a;
-	//	for (int j = 0; j < GameConfig::GAME_HEIGHT; j++) {	
-	//		if (j >= GameConfig::GAME_HEIGHT - 2) {
-	//			a.push_back(1);
-	//		}
-	//		else {
-	//			a.push_back(0);
-	//		}
-	//	}
-	//	gameLayer.push_back(a);
-	//}
 	Zoro zoro;
 	Triangle triangle;
 	Straight straight;
@@ -41,7 +28,7 @@ GameController::GameController()
 	figures.push_back(sqeare);
 
 	nextFigure();
-	drawFigure();
+	
 }
 
 void GameController::move(Direction dir)
@@ -59,18 +46,13 @@ void GameController::move(Direction dir)
 
 		break;
 	case Direction::UP:
-
+		nextFigure();
+		drawFigure();
 		break;
 	default:
 		break;
 	}
-	
 
-}
-
-int GameController::getGameLayer()
-{
-	return gameLayer[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT];
 }
 
 void GameController::nextFigure()
@@ -80,9 +62,11 @@ void GameController::nextFigure()
 
 void GameController:: drawFigure()
 {
+
+	gameData->clearDataVO();
 	BaseFigure currentFigure = figures[figureId];
 	vector<COORD> state = currentFigure.getState();
 	for (int i = 0; i < state.size(); i++) {
-		gameLayer[state[i].X][state[i].Y] = 1;
+		gameData->dataVO.data[state[i].X][state[i].Y] = 1;
 	}
 }

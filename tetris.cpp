@@ -10,6 +10,7 @@
 #include "ctime"
 #include <fcntl.h>
 #include <io.h>
+#include "GameData.h"
 #include "InfoLayer.h"
 #include <iostream>
 #include <chrono>
@@ -61,6 +62,7 @@ int main()
 	initWindow();
 	srand((unsigned)time(0));
 
+	GameData gameData;
 	GameController gController;
 	Scene scene;
 	Backgroung backgroung;
@@ -69,8 +71,10 @@ int main()
 
 	scene.addLayer(&backgroung);
 	scene.addLayer(&gameLayer);
-	scene.addLayer(&infoLayer);
-	gameLayer.updateGameLayer(gController.getGameLayer());
+	
+	gController.gameData = &gameData;
+	gameLayer.gameData = &gameData;
+
 	scene.draw();
 
 	int iKey = 67;

@@ -60,6 +60,9 @@
     <ClCompile Include="Layer.cpp">
       <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="GameData.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="InfoLayer.cpp">
       <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="Zoro.h">
       <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="GameData.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="InfoLayer.h">
       <Filter>Исходные файлы\Layers</Filter>
