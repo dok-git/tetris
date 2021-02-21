@@ -5,7 +5,12 @@ BaseFigure::BaseFigure()
 	
 }
 
-void BaseFigure::nextState()
+void BaseFigure::clearState()
+{
+	stateId = 0;
+}
+
+void BaseFigure::rotate()
 {
 	if (stateId == states.size()-1) {
 		stateId = 0;

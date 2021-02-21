@@ -9,6 +9,6 @@ public:
     std::vector<CellVO> render() override;
     COORD layerPos{ 6,4 };
 
-    GameData* gameData;
+    GameData* gameData{};
 
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "GameConfig.h"
 #include <vcruntime_string.h>
+#include "BaseFigure.h"
 
 class DataVO
 {
@@ -15,6 +16,18 @@ class DataVO
 class GameData
 {
 	public:
+		GameData();
 		DataVO dataVO;
+		BaseFigure *nextFigure;
+		BaseFigure *currentFigure;
+		void setNewFigure();
+
+		void rotateFigure();
+
+	private:
+		int figureId = 0;
+		int nextfigureId = 0;
+		std::vector <BaseFigure> figures{};
+
 };
 

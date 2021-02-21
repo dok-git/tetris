@@ -10,8 +10,9 @@ class GameController
 {
 
 public:
-	GameController();
-	GameData* gameData;
+	GameData *gameData;
+
+	void startGame();
 
 	void move(Direction dir);
 
@@ -19,11 +20,7 @@ private:
 	DataVO moveDataVO;
 	DataVO staticDataVO;
 
-	std::vector < BaseFigure > figures;
-	int figureId = 0;
-
 	void updateGameData();
-	void nextFigure();
 	void drawFigure();
 };
 
