@@ -16,6 +16,12 @@ public:
 
 	void move(Direction dir);
 
+	bool moveLeft();
+
+	bool moveRight();
+
+	bool moveDown();
+
 private:
 	DataVO moveDataVO;
 	DataVO staticDataVO;

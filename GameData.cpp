@@ -34,6 +34,7 @@ GameData::GameData()
 
 void GameData::setNewFigure()
 {
+	posFigure = { 5,0 };
 	figureId = nextfigureId;
 	nextfigureId = random(figures.size() - 1);
 	nextFigure = &figures[nextfigureId];

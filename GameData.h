@@ -6,7 +6,7 @@
 class DataVO
 {
 	public:
-		int data[GameConfig::WIDTH][GameConfig::HEIGHT] = {};
+		int data[GameConfig::GAME_WIDTH][GameConfig::GAME_HEIGHT] = {};
 		void clear() {
 			memset(data, 0, sizeof(data));
 		}
@@ -21,7 +21,7 @@ class GameData
 		BaseFigure *nextFigure;
 		BaseFigure *currentFigure;
 		void setNewFigure();
-
+		COORD posFigure{};
 		void rotateFigure();
 
 	private:
