@@ -1,34 +1,7 @@
 #include "GameController.h"
-#include "Zoro.h"
-#include "Triangle.h"
-#include "Sqeare.h"
-#include "AngleD.h"
-#include "Angle.h"
-#include "Straight.h"
 
-int random(int max) {
-	int min = 0;
-	return min + rand() % (max - min + 1);
-}
+void GameController::startGame(){
 
-GameController::GameController()
-{
-	Zoro zoro;
-	Triangle triangle;
-	Straight straight;
-	Angle angle;
-	AngleD angleD;
-	Sqeare sqeare;
-
-	figures.push_back(zoro);
-	figures.push_back(triangle);
-	figures.push_back(straight);
-	figures.push_back(angle);
-	figures.push_back(angleD);
-	figures.push_back(sqeare);
-
-	nextFigure();
-	
 }
 
 void GameController::move(Direction dir)
@@ -46,26 +19,21 @@ void GameController::move(Direction dir)
 
 		break;
 	case Direction::UP:
-		nextFigure();
-		drawFigure();
-		updateGameData();
+		gameData->rotateFigure();
 		break;
 	default:
 		break;
 	}
 
-}
+	drawFigure();
+	updateGameData();
 
-void GameController::nextFigure()
-{
-	figureId = random(5);
 }
 
 void GameController::drawFigure()
 {
 	moveDataVO.clear();
-	BaseFigure currentFigure = figures[figureId];
-	vector<COORD> state = currentFigure.getState();
+	vector<COORD> state = gameData->currentFigure->getState();
 	for (int i = 0; i < state.size(); i++) {
 		moveDataVO.data[state[i].X][state[i].Y] = 1;
 	}

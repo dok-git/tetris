@@ -8,9 +8,12 @@ class BaseFigure
 {
 public:
 	BaseFigure();
-	vector<vector<COORD>> states;
-	int stateId  = 0;
-	void nextState();
+	void clearState();
+	void rotate();
 	vector<COORD> getState();
+protected:
+	vector<vector<COORD>> states;
+	int stateId = 0;
+
 };
 

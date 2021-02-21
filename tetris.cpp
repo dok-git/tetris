@@ -21,11 +21,11 @@ using namespace std;
 
 void SetWindowSize(int Width, int Height)
 {
-	_COORD coord;
+	_COORD coord{};
 	coord.X = Width+10;
 	coord.Y = Height;
 
-	_SMALL_RECT Rect;
+	_SMALL_RECT Rect{};
 	Rect.Top = 0;
 	Rect.Left = 0;
 	Rect.Bottom = Height - 1;
@@ -57,6 +57,8 @@ int main()
 	initWindow();
 	srand((unsigned)time(0));
 
+	bool isStart = false;
+
 	GameData gameData;
 	GameController gController;
 	Scene scene;
@@ -77,26 +79,32 @@ int main()
 		if (_kbhit())
 		{
 			iKey = _getch();
-			switch (iKey)
-			{
-			case KEY_ARROW_UP:
-				gController.move(Direction::UP);
-				break;
-			case KEY_ARROW_RIGHT:
-				gController.move(Direction::RIGHT);
-				break;
-			case KEY_ARROW_DOWN:
-				gController.move(Direction::DOWN);
-				break;
-			case KEY_ARROW_LEFT:
-				gController.move(Direction::LEFT);
-				break;
-			case 120: //клавиша x
-			case 88: //клавиша X
-				exit(0); //завершение программы
+			if (isStart) {
+				switch (iKey)
+				{
+				case KEY_ARROW_UP:
+					gController.move(Direction::UP);
+					break;
+				case KEY_ARROW_RIGHT:
+					gController.move(Direction::RIGHT);
+					break;
+				case KEY_ARROW_DOWN:
+					gController.move(Direction::DOWN);
+					break;
+				case KEY_ARROW_LEFT:
+					gController.move(Direction::LEFT);
+					break;
+				case 120: //клавиша x
+				case 88: //клавиша X
+					exit(0); //завершение программы
+				}
+				if (iKey == KEY_ARROW_UP || iKey == KEY_ARROW_RIGHT || iKey == KEY_ARROW_DOWN || iKey == KEY_ARROW_LEFT) {
+					scene.draw();
+				}
 			}
-			if (iKey == KEY_ARROW_UP || iKey == KEY_ARROW_RIGHT || iKey == KEY_ARROW_DOWN || iKey == KEY_ARROW_LEFT) {
-				scene.draw();
+			else {
+				isStart = true;
+				gController.startGame();
 			}
 		}
 	}
