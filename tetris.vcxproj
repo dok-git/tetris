@@ -148,6 +148,7 @@
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="InfoLayer.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="MsgLayer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sqeare.cpp" />
     <ClCompile Include="Straight.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="InfoLayer.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="MsgLayer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sqeare.h" />
     <ClInclude Include="Straight.h" />

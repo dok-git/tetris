@@ -27,7 +27,14 @@ private:
 	DataVO staticDataVO;
 
 	void updateGameData();
+	void copyData(DataVO& dataTo, DataVO& dataFrom);
+	bool checkCollision(DataVO& moveData, DataVO& staticData);
 	void drawFigure();
+	bool checkLastRow(DataVO& moveData);
+	bool checkCollisionL(DataVO& moveData, DataVO& staticData);
+	bool checkCollisionR(DataVO& moveData, DataVO& staticData);
+	bool checkRightCol(DataVO& moveData);
+	bool checkLeftCol(DataVO& moveData);
 };
 
 

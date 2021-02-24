@@ -2,13 +2,27 @@
 #include <string>
 using namespace std;
 
+COORD InfoLayer::getLayerPos()
+{
+	return layerPos;
+}
+
 std::vector<CellVO> InfoLayer::render()
 {
 	std::vector<CellVO> cells;
-	drawString(cells, FOREGROUND_GREEN, {5, 1});
-
+	drawString(cells, "Next Figure", FOREGROUND_RED, {3, 18});
+	drawString(cells, "Points ", FOREGROUND_GREEN | FOREGROUND_INTENSITY, { 1, 3 });
+	drawString(cells, "Level ", FOREGROUND_GREEN | FOREGROUND_INTENSITY, { 1, 4 });
+	drawString(cells, "Destroyed rows ", FOREGROUND_GREEN | FOREGROUND_INTENSITY, { 1, 5 });
+	drawString(cells, "Time ", FOREGROUND_GREEN | FOREGROUND_INTENSITY, { 1, 6 });
+	
+	vector < COORD > figure = gameData->nextFigure->getInitState();
+	for (int i = 0; i < figure.size(); i++) {
+		cells.push_back(getCellVO(L'\u00A4', FOREGROUND_RED | FOREGROUND_INTENSITY , figure[i].X+7, figure[i].Y+20));
+	}
 	return cells;
 }
+
 std::string InfoLayer::formatTime(int second)
 {
 	int h = 0, m = 0, s = 0;

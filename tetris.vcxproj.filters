@@ -66,6 +66,9 @@
     <ClCompile Include="InfoLayer.cpp">
       <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="MsgLayer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameController.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="InfoLayer.h">
       <Filter>Исходные файлы\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgLayer.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

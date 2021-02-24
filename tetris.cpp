@@ -14,6 +14,7 @@
 #include "InfoLayer.h"
 #include <iostream>
 #include <chrono>
+#include "MsgLayer.h"
 
 using namespace std;
 
@@ -70,12 +71,16 @@ int main()
 	Backgroung backgroung;
 	GameLayer gameLayer;
 	InfoLayer infoLayer;
+	MsgLayer msgLayer;
 
 	scene.addLayer(&backgroung);
 	scene.addLayer(&gameLayer);
-	
+	scene.addLayer(&infoLayer);
+	scene.addLayer(&msgLayer);
+
 	gController.gameData = &gameData;
 	gameLayer.gameData = &gameData;
+	infoLayer.gameData = &gameData;
 
 	scene.draw();
 
