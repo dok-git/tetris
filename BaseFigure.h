@@ -11,6 +11,7 @@ public:
 	void clearState();
 	void rotate();
 	vector<COORD> getState();
+	vector<COORD> getInitState();
 protected:
 	vector<vector<COORD>> states;
 	int stateId = 0;
