@@ -48,7 +48,6 @@ void Layer::line(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, int x0
 			layerBufer.push_back(getCellVO(Char, color, i, y0));
 		}
 	}
-	
 }
 
 void Layer::border(std::vector<CellVO>& layerBufer, WCHAR CharH, WCHAR CharV, WCHAR CharA1, WCHAR CharA2, WCHAR CharA3, WCHAR CharA4, WORD color, int x0, int y0, int width, int height)
