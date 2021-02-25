@@ -109,11 +109,9 @@ bool GameController::checkCollision(DataVO& moveData, DataVO& staticData) {
 }
 
 bool GameController::checkCollisionL(DataVO& moveData, DataVO& staticData) {
-	for (int i = 0; i < GameConfig::GAME_WIDTH; i++) {
-		for (int j = 1; j < GameConfig::GAME_HEIGHT; j++) {
+	for (int i = 0; i < GameConfig::GAME_WIDTH-1; i++) {
+		for (int j = 0; j < GameConfig::GAME_HEIGHT; j++) {
 			if (staticData.data[i][j] == moveData.data[i+1][j] && staticData.data[i][j] == 1) {
-				int ii = staticData.data[i][j];
-				int jj = moveData.data[i + 1][j];
 				return true;
 			}
 		}
@@ -122,8 +120,8 @@ bool GameController::checkCollisionL(DataVO& moveData, DataVO& staticData) {
 }
 
 bool GameController::checkCollisionR(DataVO& moveData, DataVO& staticData) {
-	for (int i = 0; i < GameConfig::GAME_WIDTH; i++) {
-		for (int j = 1; j < GameConfig::GAME_HEIGHT; j++) {
+	for (int i = 1; i < GameConfig::GAME_WIDTH; i++) {
+		for (int j = 0; j < GameConfig::GAME_HEIGHT; j++) {
 			if (staticData.data[i][j] == moveData.data[i-1][j] && staticData.data[i][j] == 1) {
 				return true;
 			}
