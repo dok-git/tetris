@@ -58,6 +58,7 @@ void initWindow() {
 
 int main()
 {
+	int abc;
 	auto start = chrono::high_resolution_clock::now();
 
 	initWindow();
