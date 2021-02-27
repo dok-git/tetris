@@ -58,7 +58,6 @@ void initWindow() {
 
 int main()
 {
-	int abc;
 	auto start = chrono::high_resolution_clock::now();
 
 	initWindow();
@@ -82,9 +81,11 @@ int main()
 	gController.gameData = &gameData;
 	gameLayer.gameData = &gameData;
 	infoLayer.gameData = &gameData;
+	msgLayer.showStartMsg();
 
 	scene.draw();
-
+	Direction direction = Direction::DOWN;
+	MoveResult result = MoveResult::NONE;
 	int iKey = 67;
 	while (iKey != 27) // Выход по клавише ESC
 	{
@@ -92,36 +93,45 @@ int main()
 		if (_kbhit())
 		{
 			iKey = _getch();
+			result = MoveResult::NONE;
 			if (isStart) {
 				switch (iKey)
 				{
 				case KEY_ARROW_UP:
-					gController.move(Direction::UP);
+					direction = Direction::UP;
 					break;
 				case KEY_ARROW_RIGHT:
-					gController.move(Direction::RIGHT);
+					direction = Direction::RIGHT;
 					break;
 				case KEY_ARROW_DOWN:
-					gController.move(Direction::DOWN);
+					direction = Direction::DOWN;
 					break;
 				case KEY_ARROW_LEFT:
-					gController.move(Direction::LEFT);
+					direction = Direction::LEFT;
 					break;
 				case 120: //клавиша x
 				case 88: //клавиша X
 					exit(0); //завершение программы
 				}
 				if (iKey == KEY_ARROW_UP || iKey == KEY_ARROW_RIGHT || iKey == KEY_ARROW_DOWN || iKey == KEY_ARROW_LEFT) {
+					result = gController.move(direction);
 					scene.draw();
 				}
 			}
 			else {
 				isStart = true;
+				msgLayer.hideMsg();
 				gController.startGame();
+			}
+			
+			if (result == MoveResult::GAME_OVER) {
+				msgLayer.gameOver();
+				scene.draw();
+				iKey = 27;
 			}
 		}
 	}
 	auto end = chrono::high_resolution_clock::now();
 	chrono::duration<float> duration = end - start;
-	cout << duration.count();
+	std::cout << duration.count();
  }
