@@ -5,7 +5,11 @@
 #include "GameData.h"
 
 enum class Direction { RIGHT, LEFT, UP, DOWN };
-
+enum class MoveResult {
+	NONE,
+	MOVE,
+	GAME_OVER,
+};
 class GameController
 {
 
@@ -14,14 +18,13 @@ public:
 
 	void startGame();
 
-	void move(Direction dir);
+	MoveResult move(Direction dir);
 
 	bool moveLeft();
 
 	bool moveRight();
 
 	bool moveDown();
-
 private:
 	DataVO moveDataVO;
 	DataVO staticDataVO;
@@ -35,6 +38,9 @@ private:
 	bool checkCollisionR(DataVO& moveData, DataVO& staticData);
 	bool checkRightCol(DataVO& moveData);
 	bool checkLeftCol(DataVO& moveData);
+	void checkWidth();
+	void clearRow(int row);
+	void moveDownStatic(int row);
 };
 
 

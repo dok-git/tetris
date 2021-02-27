@@ -6,7 +6,7 @@ void GameController::startGame(){
 	updateGameData();
 }
 
-void GameController::move(Direction dir)
+MoveResult GameController::move(Direction dir)
 {
 	bool needToUpdate = true;
 	switch (dir)
@@ -20,8 +20,14 @@ void GameController::move(Direction dir)
 	case Direction::DOWN:
 		needToUpdate = moveDown();
 		if (!needToUpdate) {
-			gameData->setNewFigure();
-			needToUpdate = true;
+			if (gameData->posFigure.Y == 0) {
+				return MoveResult::GAME_OVER;
+			}
+			else {
+				checkWidth();
+				gameData->setNewFigure();
+				needToUpdate = true;
+			}
 		}
 		break;
 	case Direction::UP:
@@ -33,6 +39,35 @@ void GameController::move(Direction dir)
 	if (needToUpdate) {
 		drawFigure();
 		updateGameData();
+	}
+}
+
+void GameController::checkWidth() {
+	for (int i = 0; i < GameConfig::GAME_HEIGHT; i++) {
+		bool needClearRow = true;
+		for (int ii = 0; ii < GameConfig::GAME_WIDTH; ii++) {
+			if (staticDataVO.data[ii][i] == 0) {
+				needClearRow = false;
+			}
+		}
+		if (needClearRow) {
+			clearRow(i);
+			moveDownStatic(i);
+		}
+	}
+}
+
+void GameController::moveDownStatic(int row) {
+	for (int j = row; j > 0; j--) {
+		for (int i = 0; i < GameConfig::GAME_WIDTH; i++) {
+			staticDataVO.data[i][j] = staticDataVO.data[i][j-1];
+		}
+	}
+}
+
+void GameController::clearRow(int row) {
+	for (int j = 0; j < GameConfig::GAME_WIDTH; j++) {
+		staticDataVO.data[j][row] = 0;
 	}
 }
 

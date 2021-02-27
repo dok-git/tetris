@@ -5,6 +5,7 @@
 #include "AngleD.h"
 #include "Angle.h"
 #include "Straight.h"
+#include "ZoroD.h"
 
 
 int random(int max) {
@@ -15,6 +16,7 @@ int random(int max) {
 GameData::GameData()
 {
 	Zoro zoro;
+	ZoroD zoroD;
 	Triangle triangle;
 	Straight straight;
 	Angle angle;
@@ -22,6 +24,7 @@ GameData::GameData()
 	Sqeare sqeare;
 
 	figures.push_back(zoro);
+	figures.push_back(zoroD);
 	figures.push_back(triangle);
 	figures.push_back(straight);
 	figures.push_back(angle);
