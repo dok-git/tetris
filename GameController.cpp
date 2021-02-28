@@ -43,6 +43,7 @@ MoveResult GameController::move(Direction dir)
 }
 
 void GameController::checkWidth() {
+	int litch = 0;
 	for (int i = 0; i < GameConfig::GAME_HEIGHT; i++) {
 		bool needClearRow = true;
 		for (int ii = 0; ii < GameConfig::GAME_WIDTH; ii++) {
@@ -51,9 +52,19 @@ void GameController::checkWidth() {
 			}
 		}
 		if (needClearRow) {
+			litch++;
+			litchGoal++;
+			gameData->score++;
 			clearRow(i);
 			moveDownStatic(i);
 		}
+	}
+	if (litch > 1) {
+		gameData->score = gameData->score + litch - 1;
+	}
+	if (litchGoal == 5) {
+		gameData->level++;
+		litchGoal = 0;
 	}
 }
 
