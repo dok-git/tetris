@@ -15,20 +15,15 @@ class GameController
 
 public:
 	GameData *gameData;
-
 	void startGame();
-
 	MoveResult move(Direction dir);
-
 	bool moveLeft();
-
 	bool moveRight();
-
 	bool moveDown();
 private:
 	DataVO moveDataVO;
 	DataVO staticDataVO;
-
+	int litchGoal=0;
 	void updateGameData();
 	void copyData(DataVO& dataTo, DataVO& dataFrom);
 	bool checkCollision(DataVO& moveData, DataVO& staticData);

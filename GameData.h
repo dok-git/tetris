@@ -20,6 +20,8 @@ class GameData
 		DataVO dataVO;
 		BaseFigure *nextFigure;
 		BaseFigure *currentFigure;
+		int score = 0;
+		int level = 0;
 		void setNewFigure();
 		COORD posFigure{};
 		void rotateFigure();
