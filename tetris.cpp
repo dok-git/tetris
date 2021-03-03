@@ -13,7 +13,6 @@
 #include "GameData.h"
 #include "InfoLayer.h"
 #include <iostream>
-#include <chrono>
 #include "MsgLayer.h"
 
 using namespace std;
@@ -58,7 +57,6 @@ void initWindow() {
 
 int main()
 {
-	auto start = chrono::high_resolution_clock::now();
 
 	initWindow();
 	srand((unsigned)time(0));
@@ -87,9 +85,9 @@ int main()
 	Direction direction = Direction::DOWN;
 	MoveResult result = MoveResult::NONE;
 	int iKey = 67;
+	int a = 0;
 	while (iKey != 27) // Выход по клавише ESC
 	{
-		
 		if (_kbhit())
 		{
 			iKey = _getch();
@@ -123,15 +121,19 @@ int main()
 				msgLayer.hideMsg();
 				gController.startGame();
 			}
-			
+		}
+		if (isStart) {
+			if (a == gameData.getSpeed()) {
+				result = gController.move(Direction::DOWN);
+				scene.draw();
+				a = 0;
+			}
 			if (result == MoveResult::GAME_OVER) {
 				msgLayer.gameOver();
 				scene.draw();
 				iKey = 27;
 			}
+			a++;
 		}
 	}
-	auto end = chrono::high_resolution_clock::now();
-	chrono::duration<float> duration = end - start;
-	std::cout << duration.count();
  }

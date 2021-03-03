@@ -50,3 +50,10 @@ void GameData::setNewFigure()
 void GameData::rotateFigure() {
 	currentFigure->rotate();
 }
+
+int GameData::getSpeed() {
+	if (level > 4) {
+		return levelSpeed[4];
+	}
+	return levelSpeed[level];
+}

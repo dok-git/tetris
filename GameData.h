@@ -2,6 +2,7 @@
 #include "GameConfig.h"
 #include <vcruntime_string.h>
 #include "BaseFigure.h"
+#include <array>
 
 class DataVO
 {
@@ -25,11 +26,13 @@ class GameData
 		void setNewFigure();
 		COORD posFigure{};
 		void rotateFigure();
+		int getSpeed();
+		
 
 	private:
 		int figureId = 0;
 		int nextfigureId = 0;
 		std::vector <BaseFigure> figures{};
-
+		const std::array < int, 5 > levelSpeed{ 12000 , 10000 , 8000 , 7000 , 5000 };
 };
 
