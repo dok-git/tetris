@@ -20,6 +20,7 @@ public:
 	bool moveLeft();
 	bool moveRight();
 	bool moveDown();
+	void checkdraw();
 private:
 	DataVO moveDataVO;
 	DataVO staticDataVO;

@@ -32,6 +32,7 @@ MoveResult GameController::move(Direction dir)
 		break;
 	case Direction::UP:
 		gameData->rotateFigure();
+		checkdraw();
 		break;
 	default:
 		break;
@@ -62,7 +63,7 @@ void GameController::checkWidth() {
 	if (litch > 1) {
 		gameData->score = gameData->score + litch - 1;
 	}
-	if (litchGoal == 5) {
+	if (litchGoal == 2) {
 		gameData->level++;
 		litchGoal = 0;
 	}
@@ -108,6 +109,19 @@ bool GameController::moveDown() {
 	return true;
 }
 
+void GameController::checkdraw() {
+	int litch = 0 , wid;
+	vector<COORD> state = gameData->currentFigure->getState();
+	if (gameData->posFigure.X < 0) {
+		gameData->posFigure.X = 0;
+	}
+	for (int i = 0; i < state.size(); i++) {
+		wid = state[i].X;
+		while (gameData->posFigure.X + wid + 1 > GameConfig::GAME_WIDTH) {
+			gameData->posFigure.X--;
+		}
+	}
+}
 
 void GameController::drawFigure()
 {
