@@ -24,4 +24,9 @@ vector<COORD> BaseFigure::getState()
 {
 	return states[stateId];
 }
+
+vector<COORD> BaseFigure::getInitState()
+{
+	return states[0];
+}
 	

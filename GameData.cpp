@@ -5,6 +5,7 @@
 #include "AngleD.h"
 #include "Angle.h"
 #include "Straight.h"
+#include "ZoroD.h"
 
 
 int random(int max) {
@@ -15,6 +16,7 @@ int random(int max) {
 GameData::GameData()
 {
 	Zoro zoro;
+	ZoroD zoroD;
 	Triangle triangle;
 	Straight straight;
 	Angle angle;
@@ -22,6 +24,7 @@ GameData::GameData()
 	Sqeare sqeare;
 
 	figures.push_back(zoro);
+	figures.push_back(zoroD);
 	figures.push_back(triangle);
 	figures.push_back(straight);
 	figures.push_back(angle);
@@ -34,6 +37,7 @@ GameData::GameData()
 
 void GameData::setNewFigure()
 {
+	posFigure = { 5,0 };
 	figureId = nextfigureId;
 	nextfigureId = random(figures.size() - 1);
 	nextFigure = &figures[nextfigureId];
@@ -45,4 +49,11 @@ void GameData::setNewFigure()
 
 void GameData::rotateFigure() {
 	currentFigure->rotate();
+}
+
+int GameData::getSpeed() {
+	if (level > 4) {
+		return levelSpeed[4];
+	}
+	return levelSpeed[level];
 }

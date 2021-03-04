@@ -13,7 +13,7 @@
 #include "GameData.h"
 #include "InfoLayer.h"
 #include <iostream>
-#include <chrono>
+#include "MsgLayer.h"
 
 using namespace std;
 
@@ -57,7 +57,6 @@ void initWindow() {
 
 int main()
 {
-	auto start = chrono::high_resolution_clock::now();
 
 	initWindow();
 	srand((unsigned)time(0));
@@ -70,52 +69,71 @@ int main()
 	Backgroung backgroung;
 	GameLayer gameLayer;
 	InfoLayer infoLayer;
+	MsgLayer msgLayer;
 
 	scene.addLayer(&backgroung);
 	scene.addLayer(&gameLayer);
-	
+	scene.addLayer(&infoLayer);
+	scene.addLayer(&msgLayer);
+
 	gController.gameData = &gameData;
 	gameLayer.gameData = &gameData;
+	infoLayer.gameData = &gameData;
+	msgLayer.showStartMsg();
 
 	scene.draw();
-
+	Direction direction = Direction::DOWN;
+	MoveResult result = MoveResult::NONE;
 	int iKey = 67;
+	int a = 0;
 	while (iKey != 27) // Выход по клавише ESC
 	{
-		
 		if (_kbhit())
 		{
 			iKey = _getch();
+			result = MoveResult::NONE;
 			if (isStart) {
 				switch (iKey)
 				{
 				case KEY_ARROW_UP:
-					gController.move(Direction::UP);
+					direction = Direction::UP;
 					break;
 				case KEY_ARROW_RIGHT:
-					gController.move(Direction::RIGHT);
+					direction = Direction::RIGHT;
 					break;
 				case KEY_ARROW_DOWN:
-					gController.move(Direction::DOWN);
+					direction = Direction::DOWN;
 					break;
 				case KEY_ARROW_LEFT:
-					gController.move(Direction::LEFT);
+					direction = Direction::LEFT;
 					break;
 				case 120: //клавиша x
 				case 88: //клавиша X
 					exit(0); //завершение программы
 				}
 				if (iKey == KEY_ARROW_UP || iKey == KEY_ARROW_RIGHT || iKey == KEY_ARROW_DOWN || iKey == KEY_ARROW_LEFT) {
+					result = gController.move(direction);
 					scene.draw();
 				}
 			}
 			else {
 				isStart = true;
+				msgLayer.hideMsg();
 				gController.startGame();
 			}
 		}
+		if (isStart) {
+			if (a == gameData.getSpeed()) {
+				result = gController.move(Direction::DOWN);
+				scene.draw();
+				a = 0;
+			}
+			if (result == MoveResult::GAME_OVER) {
+				msgLayer.gameOver();
+				scene.draw();
+				iKey = 27;
+			}
+			a++;
+		}
 	}
-	auto end = chrono::high_resolution_clock::now();
-	chrono::duration<float> duration = end - start;
-	cout << duration.count();
  }

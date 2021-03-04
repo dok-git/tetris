@@ -13,7 +13,7 @@ std::vector <CellVO> GameLayer::render()
 	for (int i = 0; i < GameConfig::GAME_WIDTH; i++) {
 		for (int j = 0; j < GameConfig::GAME_HEIGHT; j++) {
 			if (gameData->dataVO.data[i][j] == 1) {
-				cells.push_back(getCellVO('*', FOREGROUND_GREEN, i, j));
+				cells.push_back(getCellVO(L'\u00A4', FOREGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED, i, j));
 			}
 		}
 	}

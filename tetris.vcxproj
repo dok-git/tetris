@@ -148,12 +148,14 @@
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="InfoLayer.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="MsgLayer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sqeare.cpp" />
     <ClCompile Include="Straight.cpp" />
     <ClCompile Include="tetris.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Zoro.cpp" />
+    <ClCompile Include="ZoroD.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Angle.h" />
@@ -166,11 +168,13 @@
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="InfoLayer.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="MsgLayer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sqeare.h" />
     <ClInclude Include="Straight.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Zoro.h" />
+    <ClInclude Include="ZoroD.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -48,7 +48,6 @@ void Layer::line(std::vector<CellVO>& layerBufer, WCHAR Char, WORD color, int x0
 			layerBufer.push_back(getCellVO(Char, color, i, y0));
 		}
 	}
-	
 }
 
 void Layer::border(std::vector<CellVO>& layerBufer, WCHAR CharH, WCHAR CharV, WCHAR CharA1, WCHAR CharA2, WCHAR CharA3, WCHAR CharA4, WORD color, int x0, int y0, int width, int height)
@@ -79,10 +78,9 @@ void Layer::drawArrayPoints(std::vector<CellVO>& layerBufer, WCHAR Char, WORD co
 	}
 }
 
-void Layer::drawString(std::vector<CellVO>& layerBufer, WORD color,COORD pos)
+void Layer::drawString(std::vector<CellVO>& layerBufer, std::string str, WORD color, COORD pos)
 {
-	string String="TeTriS GAME!";
-	for (int i = 0; i < String.size(); i++) {
-		layerBufer.push_back(getCellVO(String[i], color,pos.X+i,pos.Y));
+	for (int i = 0; i < str.size(); i++) {
+		layerBufer.push_back(getCellVO(str[i], color, pos.X + i, pos.Y));
 	}
 }

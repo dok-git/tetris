@@ -19,9 +19,9 @@ void Scene::draw()
 
 	for (std::size_t i = 0; i < layers.size(); i++) {
 		auto layer = layers[i];
-		auto render = layer->render();
-		for (std::size_t j = 0; j < render.size(); j++) {
-			consBuffer[render[j].pos] = render[j].charInfo;
+		auto cells = layer->render();
+		for (std::size_t j = 0; j < cells.size(); j++) {
+			consBuffer[cells[j].pos] = cells[j].charInfo;
 		}
 	}
 
