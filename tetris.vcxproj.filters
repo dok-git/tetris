@@ -66,11 +66,14 @@
     <ClCompile Include="InfoLayer.cpp">
       <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
-    <ClCompile Include="MsgLayer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ZoroD.cpp">
       <Filter>Исходные файлы\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuLayer.cpp">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgLayer.cpp">
+      <Filter>Исходные файлы\Layers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,11 +122,14 @@
     <ClInclude Include="InfoLayer.h">
       <Filter>Исходные файлы\Layers</Filter>
     </ClInclude>
-    <ClInclude Include="MsgLayer.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ZoroD.h">
       <Filter>Исходные файлы\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuLayer.h">
+      <Filter>Исходные файлы\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgLayer.h">
+      <Filter>Исходные файлы\Layers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

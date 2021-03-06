@@ -14,6 +14,7 @@
 #include "InfoLayer.h"
 #include <iostream>
 #include "MsgLayer.h"
+#include "MenuLayer.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ void SetWindowPosition() {
 	RECT rd, rc;
 	GetWindowRect(hwd, &rd);
 	GetWindowRect(hwc, &rc);
-	MoveWindow(hwc, (rd.right - rc.right) / 2, (rd.bottom - rc.bottom) / 2, 500, 600, TRUE);
+	MoveWindow(hwc, (rd.right - rc.right) / 2, (rd.bottom - rc.bottom) / 2, 550, 600, TRUE);
 	SetWindowLong(hwc, GWL_STYLE, GetWindowLong(hwc, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
 }
 
@@ -70,11 +71,13 @@ int main()
 	GameLayer gameLayer;
 	InfoLayer infoLayer;
 	MsgLayer msgLayer;
+	MenuLayer menuLayer;
 
 	scene.addLayer(&backgroung);
 	scene.addLayer(&gameLayer);
 	scene.addLayer(&infoLayer);
 	scene.addLayer(&msgLayer);
+	scene.addLayer(&menuLayer);
 
 	gController.gameData = &gameData;
 	gameLayer.gameData = &gameData;

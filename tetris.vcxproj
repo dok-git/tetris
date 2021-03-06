@@ -148,6 +148,7 @@
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="InfoLayer.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="MenuLayer.cpp" />
     <ClCompile Include="MsgLayer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sqeare.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="InfoLayer.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="MenuLayer.h" />
     <ClInclude Include="MsgLayer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sqeare.h" />
