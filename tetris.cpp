@@ -59,6 +59,8 @@ void initWindow() {
 int main()
 {
 
+	int abc;
+
 	initWindow();
 	srand((unsigned)time(0));
 
